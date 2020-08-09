@@ -1,0 +1,57 @@
+@startuml
+!define table(x) class x << (T,#FFAAAA) >>
+!define primary_key(x) <u>x</u>
+hide methods
+hide stereotypes
+
+table(songplays) {
+songplay_id varchar
+start_time varchar
+user_id varchar
+level varchar
+song_id varchar
+artist_id varchar
+session_id int
+location varchar
+user_agent varchar
+}
+users }o..|| songplays
+
+table(users){
+user_id varchar
+first_name varchar
+last_name varchar
+gender varchar
+level varchar
+}
+
+sings }o..|| songplays
+
+table(sings){
+song_id varchar
+title varchar
+artist_id varchar
+year int
+duration decimal
+}
+artists }o..|| songplays
+
+table(artists){
+ artist_id varchar
+ name varchar
+ location varchar
+ latitude decimal
+ longitude decimal
+}
+times }o..|| songplays
+
+table(times){
+start_time timestamp
+hour int
+day int
+week int
+month int
+year int
+weekday int
+}
+@enduml

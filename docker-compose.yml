@@ -1,0 +1,10 @@
+version: '2'
+services:
+  student-database:
+    image: "postgres:10.4"
+    environment:
+      - POSTGRES_DB=studentdb
+      - POSTGRES_USER=student
+      - POSTGRES_PASSWORD=student
+    ports:
+      - "5432:5432"
