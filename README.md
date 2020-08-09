@@ -8,6 +8,6 @@ Sparkify provides a musing streaming platform for their users, and there are log
 
 ## Data Model
 Data model will include 5 tables, all tables named with plural words.
-`songplays` table is the fact table and `users`, `signs`, `artist`, `times` are the dimension tables.
+`songplays` table is the fact table and `users`, `songs`, `artist`, `times` are the dimension tables.
 
-![Data Model](./docs/DataModel.png)
+![Data Model](./docs/DataModelv1.png)

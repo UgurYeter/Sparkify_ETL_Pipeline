@@ -15,7 +15,7 @@ session_id int
 location varchar
 user_agent varchar
 }
-users }o..|| songplays
+users ||..o{ songplays
 
 table(users){
 user_id varchar
@@ -25,16 +25,16 @@ gender varchar
 level varchar
 }
 
-sings }o..|| songplays
+songs ||..o{ songplays
 
-table(sings){
+table(songs){
 song_id varchar
 title varchar
 artist_id varchar
 year int
 duration decimal
 }
-artists }o..|| songplays
+artists ||..o{ songplays
 
 table(artists){
  artist_id varchar
@@ -43,7 +43,7 @@ table(artists){
  latitude decimal
  longitude decimal
 }
-times }o..|| songplays
+times ||..o{ songplays
 
 table(times){
 start_time timestamp
