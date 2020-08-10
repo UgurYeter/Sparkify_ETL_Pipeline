@@ -9,24 +9,59 @@ time_table_drop = "drop TABLE IF EXISTS times"
 # CREATE TABLES
 
 songplay_table_create = ("""
-CREATE TABLE IF NOT EXISTS songplays(songplay_id varchar PRIMARY KEY, start_time varchar, user_id varchar NOT NULL, level varchar NOT NULL, song_id varchar, artist_id varchar, session_id int NOT NULL, location varchar, user_agent varchar);
+CREATE TABLE IF NOT EXISTS songplays(
+songplay_id varchar PRIMARY KEY, 
+start_time varchar, 
+user_id varchar NOT NULL, 
+level varchar NOT NULL, 
+song_id varchar, 
+artist_id varchar, 
+session_id int NOT NULL, 
+location varchar, 
+user_agent varchar
+);
 """)
 
 user_table_create = ("""
-CREATE TABLE IF NOT EXISTS users (user_id varchar PRIMARY KEY, first_name varchar NOT NULL, last_name varchar NOT NULL, gender varchar NOT NULL, level varchar NOT NULL)
+CREATE TABLE IF NOT EXISTS users (
+user_id varchar PRIMARY KEY, 
+first_name varchar NOT NULL, 
+last_name varchar NOT NULL, 
+gender varchar NOT NULL, 
+level varchar NOT NULL
+);
 """)
 
 song_table_create = ("""
-CREATE TABLE IF NOT EXISTS songs (song_id varchar PRIMARY KEY, title varchar NOT NULL, artist_id varchar NOT NULL, year int, duration decimal NOT NULL)
+CREATE TABLE IF NOT EXISTS songs (
+song_id varchar PRIMARY KEY, 
+title varchar NOT NULL, 
+artist_id varchar NOT NULL, 
+year int, 
+duration decimal NOT NULL
+);
 """)
 
 artist_table_create = ("""
 
-CREATE TABLE IF NOT EXISTS artists( artist_id varchar PRIMARY KEY, name varchar NOT NULL, location varchar, latitude decimal, longitude decimal)
+CREATE TABLE IF NOT EXISTS artists( 
+artist_id varchar PRIMARY KEY, 
+name varchar NOT NULL, 
+location varchar, 
+latitude decimal, 
+longitude decimal
+);
 """)
 
 time_table_create = ("""
-CREATE TABLE IF NOT EXISTS times (start_time timestamp PRIMARY KEY, hour int, day int NOT NULL, week int NOT NULL, month int NOT NULL, year int NOT NULL, weekday int NOT NULL)
+CREATE TABLE IF NOT EXISTS times (
+start_time timestamp PRIMARY KEY, 
+hour int, day int NOT NULL, 
+week int NOT NULL, 
+month int NOT NULL, 
+year int NOT NULL, 
+weekday int NOT NULL
+);
 """)
 
 # # INSERT RECORDS
@@ -38,7 +73,7 @@ values(%s, %s, %s,%s,%s,%s, %s, %s,%s) ON CONFLICT (songplay_id) DO NOTHING
 """)
 
 user_table_insert = ("""
-insert into users (user_id, first_name, last_name, gender, level) values (%s, %s, %s,%s,%s) ON CONFLICT (user_id) DO NOTHING
+insert into users (user_id, first_name, last_name, gender, level) values (%s, %s, %s,%s,%s) ON CONFLICT (user_id) DO UPDATE SET level = excluded.level
 
 """)
 
